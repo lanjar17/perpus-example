@@ -7,7 +7,7 @@
     <title>User</title>
     <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.min.css"); ?>" />
 </head>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
             <img src="<?php echo base_url('/assets/image/ts.png') ?>" alt="" width="30" height="24" class="d-inline-block align-text-top">
