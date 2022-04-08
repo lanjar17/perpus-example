@@ -16,7 +16,7 @@
         </div>
         <div class="card-body">
             <h5 class="card-title">Tabel User</h5>
-            <a href="user/add" class="btn btn-success">Tambah User</a>
+            <a href="user/add" class="btn btn-success mb-3">Tambah User</a>
 
             <table class="table table-bordered table-striped">
                 <tr>

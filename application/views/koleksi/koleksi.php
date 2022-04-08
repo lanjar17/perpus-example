@@ -21,7 +21,7 @@
             <h5 class="card-title">Daftar Koleksi Perpustakaan</h5>
         </div>
         <div class="card-body">
-            <a href="koleksi/add" class="btn btn-success">Tambah Data</a>
+            <a href="koleksi/add" class="btn btn-success mb-3">Tambah Data</a>
 
             <table class="table table-bordered table-striped">
                 <tr>
