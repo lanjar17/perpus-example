@@ -34,11 +34,12 @@ class User extends CI_Controller
 
     public function insert()
     {
-        $avatar = $_FILES['avatar']['name'];
+        $avatar = time() . "-" . $_FILES['avatar']['name'];
         $config = array(
             'upload_path' => "./assets/image/ava/",
             'allowed_types' => "gif|jpg|png|jpeg",
-            'overwrite' => TRUE
+            'overwrite' => TRUE,
+            'file_name' => $avatar
         );
         // $rand = random_string('alnum', 15);
 
