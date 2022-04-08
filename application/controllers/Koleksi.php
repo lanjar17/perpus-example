@@ -33,12 +33,13 @@ class Koleksi extends CI_Controller
 
     public function insert()
     {
-        $cover = $_FILES['cover']['name'];
+        $cover = time()."-".$_FILES['cover']['name'];
         $config = array(
             'upload_path' => "./assets/image/",
             'allowed_types' => "gif|jpg|png|jpeg",
             'overwrite' => TRUE,
-            'max_size' => "2048000"
+            'max_size' => "2048000",
+            'file_name' => $cover
         );
 
         $this->load->library('upload', $config);

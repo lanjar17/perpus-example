@@ -30,6 +30,33 @@ class Usermodel extends CI_Model{
         return $this->db->insert('users', $data);
     }
 
+    function update($a, $id, $avatar = null)
+    {
+        if ($avatar == 1) {
+            $data = [
+                'avatar' => $a
+            ];
+        } else {
+            $data = [
+                'nama' => $a['nama'],
+                'alamat' => $a['alamat'],
+                'telepon' => $a['telepon']
+            ];
+        }
+
+        $this->db->where('id', $id);
+        return $this->db->update('users', $data);
+    }
+
+    function update_profil($profil, $id)
+    {
+        $data = [
+            'avatar' => $profil
+        ];
+        $this->db->where('id', $id);
+        return $this->db->update('users', $data);
+    }
+
     function delete($id)
     {
         $this->db->where('id', $id);

@@ -34,7 +34,7 @@ class User extends CI_Controller
 
     public function insert()
     {
-        $profil = $_FILES['profil']['name'];
+        $avatar = $_FILES['avatar']['name'];
         $config = array(
             'upload_path' => "./assets/image/ava/",
             'allowed_types' => "gif|jpg|png|jpeg",
@@ -45,10 +45,39 @@ class User extends CI_Controller
         $this->load->library('upload', $config);
         $this->upload->initialize($config);
         $this->upload->do_upload('profil');
-        if ($this->usermodel->insert($this->input->post(), $profil)) {
+        if ($this->usermodel->insert($this->input->post(), $avatar)) {
             $this->session->set_flashdata('pesan', 'Data berhasil ditambah');
             redirect(base_url('user'));
         }
+    }
+
+    public function edit($a)
+    {
+        $data['detail'] = $this->usermodel->get_detail($a);
+        $this->load->view('user/edit_user', $data);
+    }
+
+    public function update($id)
+    {
+        $avatar = $_FILES['avatar']['name'];
+        $config = array(
+            'upload_path' => "./assets/image/ava/",
+            'allowed_types' => "gif|jpg|png|jpeg",
+            'overwrite' => TRUE,
+            'max_size' => "2048000"
+        );
+
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+        if ($this->upload->do_upload('avatar')) {
+            $this->usermodel->update_avatar($avatar, $id, 1);
+        }
+
+        if ($this->usermodel->update($this->input->post(), $id)) {
+            $this->session->set_flashdata('pesan', 'Data berhasil diupdate');
+            redirect(base_url('user'));
+        }
+        $this->load->view('user/edit_user');
     }
 
     public function delete($id)

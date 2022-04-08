@@ -35,7 +35,7 @@
                         <td><?php echo $item['telepon'] ?></td>
                         <td>
                             <a href="user/detail/<?php echo $item['id'] ?>" class="btn btn-info" type="button">Detail</a>
-                            <a href="koleksi/edit/<?php echo $item['id'] ?>" class="btn btn-warning" type="button">Edit</a>
+                            <a href="user/edit/<?php echo $item['id'] ?>" class="btn btn-warning" type="button">Edit</a>
                             <a onclick="konfirm(<?php echo $item['id'] ?>)" class="btn btn-danger" type="button">Hapus</a>
                         </td>
                     </tr>
